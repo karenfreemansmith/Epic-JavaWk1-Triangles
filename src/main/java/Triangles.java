@@ -5,7 +5,6 @@ public class Triangles {
     } else {
       return false;
     }
-
   }
   public boolean isScalene (float a, float b, float c) {
     if ((a!=b)&&(b!=c)&&(c!=a)) {
@@ -29,5 +28,4 @@ public class Triangles {
     return false;
     }
   }
-
 }
