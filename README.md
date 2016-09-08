@@ -17,13 +17,16 @@ A program to see if 3 numbers make up a triangle and what kind of triangle it is
 | Is it equilateral? (3 equal sides) | 3,3,3 | true/equilateral   |
 
 ## Setup/Installation
-Who knows? Download stuff...
+* Clone directory
+* Run gradle build
+* navigate to src/build/classes/main
+* run program by typing "java App"
 
 ## Support & Contact
-N/A
+For questions, concerns, or suggestions please email karenfreemansmith@gmail.com
 
 ## Known Issues
-We don't really know what we are doing yet.
+* This program runs only from the command line
 
 ## Technologies Used
 Java, Gradle, junit
