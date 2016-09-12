@@ -12,17 +12,6 @@ public class App {
 
     Triangles userTriangle = new Triangles();
 
-
-    // if(userTriangle.isTriangle(sideA, sideB, sideC)&&userTriangle.isEquilateral(sideA, sideB, sideC)) {
-    //   System.out.println("Your triangle is an equilateral triangle.");
-    // } else if(userTriangle.isTriangle(sideA, sideB, sideC)&&userTriangle.isIsosceles(sideA, sideB, sideC)) {
-    //   System.out.println("Your triangle is an isosceles triangle.");
-    // } else if(userTriangle.isTriangle(sideA, sideB, sideC)&&userTriangle.isScalene(sideA, sideB, sideC)) {
-    //   System.out.println("Your triangle is an scalene triangle.");
-    // } else {
-    //   System.out.println("Sorry, that is not a triangle!");
-    // }
-
     get("/", (request, response) ->{
       Map<String, Object> model = new HashMap<String, Object>();
       model.put("template", "templates/input.vtl");
@@ -34,7 +23,17 @@ public class App {
       float sideA = Float.parseFloat(request.queryParams("sideA"));
       float sideB = Float.parseFloat(request.queryParams("sideA"));
       float sideC = Float.parseFloat(request.queryParams("sideA"));
-      model.put("result", userTriangle.isTriangle(sideA, sideB, sideC));
+
+      if(userTriangle.isTriangle(sideA, sideB, sideC)&&userTriangle.isEquilateral(sideA, sideB, sideC)) {
+        model.put("result", "Your triangle is an equilateral triangle.");
+      } else if(userTriangle.isTriangle(sideA, sideB, sideC)&&userTriangle.isIsosceles(sideA, sideB, sideC)) {
+        model.put("result", "Your triangle is an isosceles triangle.");
+      } else if(userTriangle.isTriangle(sideA, sideB, sideC)&&userTriangle.isScalene(sideA, sideB, sideC)) {
+        model.put("result", "Your triangle is an scalene triangle.");
+      } else {
+        model.put("result", "Sorry, that is not a triangle!");
+      }
+
       model.put("template", "templates/result.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
